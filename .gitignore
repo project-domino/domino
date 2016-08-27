@@ -1,0 +1,5 @@
+.*
+!.gitignore
+
+api/domino-api
+templates/domino-templates

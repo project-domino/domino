@@ -1,0 +1,15 @@
+*:80
+tls off
+gzip # DO NOT USE COMPRESSION WITH TLS!!! See BEAST and CRIME for details.
+
+## Uncomment these when we're ready for TLS.
+# project-domino.com
+# tls remexre@gmail.com
+
+errors stderr
+log stdout
+
+proxy / templates:80
+proxy /api/ api:80 {
+	without /api
+}

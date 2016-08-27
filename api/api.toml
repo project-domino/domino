@@ -1,0 +1,9 @@
+[database]
+debug = false
+type = "postgres"
+url = "dbname=domino host=postgres sslmode=disable user=domino"
+
+[http]
+debug = false
+host = ""
+port = 80

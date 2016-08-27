@@ -1,0 +1,25 @@
+version: '2'
+services:
+  # Web Proxy
+  proxy:
+    build: caddy
+    links:
+    - api
+    ports:
+    - "80:80"
+    - "443:443"
+  # Our Servers
+  api:
+    build: api
+    links:
+    - postgres
+  # Other Services
+  opensmtpd:
+    image: qjcg/opensmtpd
+  postgres:
+    environment:
+      POSTGRES_DB: domino
+      POSTGRES_USER: domino
+    image: postgres
+    volumes:
+    - /var/lib/postgresql/data
