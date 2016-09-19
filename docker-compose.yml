@@ -12,14 +12,11 @@ services:
   api:
     build: api
     links:
-    - postgres
+    - redis
   # Other Services
   opensmtpd:
     image: qjcg/opensmtpd
-  postgres:
-    environment:
-      POSTGRES_DB: domino
-      POSTGRES_USER: domino
-    image: postgres
+  redis:
+    image: redis:alpine
     volumes:
-    - /var/lib/postgresql/data
+    - /data
